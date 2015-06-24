@@ -39,4 +39,15 @@ public class UnitConverterTest {
         //then
         verify(view).showConversionNotSupported();
     }
+
+    @Test
+    public void shouldConvertFromFahrenheitToCelsius() {
+        //when
+        when(view.getInputNumber()).thenReturn(-4.0);
+        when(view.getFromUnit()).thenReturn("F");
+        when(view.getToUnit()).thenReturn("C");
+        converter.convert();
+        //then
+        verify(view).showResult(-20);
+    }
 }

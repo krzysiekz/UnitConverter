@@ -1,5 +1,7 @@
 package com.krzysiekz.unitconverter.core;
 
+import com.krzysiekz.unitconverter.core.calculation.CalculationLogic;
+import com.krzysiekz.unitconverter.core.calculation.factory.CalculationLogicFactory;
 import com.krzysiekz.unitconverter.core.view.UnitConverterView;
 
 public class UnitConverter {
@@ -10,8 +12,9 @@ public class UnitConverter {
     }
     public void convert() {
         double inputNumber = view.getInputNumber();
-        if (view.getFromUnit().equals("in") && view.getToUnit().equals("cm")) {
-            view.showResult(inputNumber * 2.54);
+        CalculationLogic calculationLogic = CalculationLogicFactory.getCalculationLogic(view.getFromUnit(), view.getToUnit());
+        if(calculationLogic != null) {
+            view.showResult(calculationLogic.calculate(inputNumber));
         } else {
             view.showConversionNotSupported();
         }
