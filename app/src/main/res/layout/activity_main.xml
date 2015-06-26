@@ -4,9 +4,30 @@
     android:layout_height="match_parent"
     tools:context="${relativePackage}.${activityClass}">
 
-    <TextView
-        android:text="@string/hello_world"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/convertButtonText"
+            android:id="@+id/convert_button"
+            android:layout_below="@+id/to_unit" android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/input_number"
+            android:layout_alignParentTop="true" android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true" android:hint="@string/input_numer_hint"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/from_unit"
+            android:layout_below="@+id/input_number" android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true" android:inputType="text" android:hint="@string/from_unit_hint"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/to_unit" android:layout_below="@+id/from_unit" android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true" android:inputType="text" android:hint="@string/to_unit_hint"/>
 </RelativeLayout>
