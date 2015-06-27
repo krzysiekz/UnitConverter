@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import com.krzysiekz.unitconverter.core.UnitConverter;
 import com.krzysiekz.unitconverter.core.view.UnitConverterView;
 
@@ -16,6 +17,7 @@ public class MainActivity extends Activity implements UnitConverterView {
     private EditText textInput;
     private EditText fromUnit;
     private EditText toUnit;
+    private TextView resultText;
 
     private UnitConverter unitConverter;
 
@@ -39,6 +41,7 @@ public class MainActivity extends Activity implements UnitConverterView {
         textInput = (EditText) findViewById(R.id.input_number);
         fromUnit = (EditText) findViewById(R.id.from_unit);
         toUnit = (EditText) findViewById(R.id.to_unit);
+        resultText = (TextView) findViewById(R.id.result_text);
     }
 
     void setUnitConverter(UnitConverter unitConverter) {
@@ -61,8 +64,13 @@ public class MainActivity extends Activity implements UnitConverterView {
         return toUnit.getText().toString();
     }
     @Override
-    public void showResult(double result) {}
+    public void showResult(double result) {
+        String formattedResult = String.format( "%.2f", result );
+        resultText.setText(formattedResult);
+    }
 
     @Override
-    public void showConversionNotSupported() {}
+    public void showConversionNotSupported() {
+        resultText.setText(R.string.conversion_not_supported);
+    }
 }

@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">UnitConverter</string>
-    <string name="hello_world">Hello world!</string>
     <string name="convertButtonText">Convert</string>
     <string name="input_numer_hint">input number</string>
     <string name="from_unit_hint">from unit</string>
     <string name="to_unit_hint">to unit</string>
+    <string name="conversion_not_supported">"Conversion not supported!"</string>
 </resources>

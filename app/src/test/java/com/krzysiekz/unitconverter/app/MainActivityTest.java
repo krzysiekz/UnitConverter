@@ -82,4 +82,26 @@ public class MainActivityTest {
         //then
         assertThat(fromUnit).isEqualTo("cm");
     }
+
+    @Test
+    public void shouldDisplayProperResult() {
+        //given
+        TextView resultText = (TextView)mainActivity.findViewById(R.id.result_text);
+        //when
+        mainActivity.showResult(20);
+        String displayed = resultText.getText().toString();
+        //then
+        assertThat(displayed).isEqualTo("20,00");
+    }
+
+    @Test
+    public void shouldDisplayProperMessageIfConversionNotSupported() {
+        //given
+        TextView resultText = (TextView)mainActivity.findViewById(R.id.result_text);
+        //when
+        mainActivity.showConversionNotSupported();
+        String displayed = resultText.getText().toString();
+        //then
+        assertThat(displayed).isEqualTo("Conversion not supported!");
+    }
 }
